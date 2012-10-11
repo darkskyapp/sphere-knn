@@ -1,14 +1,69 @@
 var assert = require("chai").assert,
+    binary = require("./lib/binary"),
     lib    = require("./lib")
 
 describe("sphere-nn", function() {
   describe("binary", function() {
     describe("search", function() {
-      /* FIXME */
+      var array = [
+            2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61
+          ]
+
+      it("should return the correct index of the first item", function() {
+        assert.equal(binary.search(2, array), 0)
+      })
+
+      it("should return the correct index of the last item", function() {
+        assert.equal(binary.search(61, array), 17)
+      })
+
+      it("should return the correct index of an arbitrary item", function() {
+        assert.equal(binary.search(23, array), 8)
+      })
+
+      it("should return the correct index of a missing item before the first", function() {
+        assert.equal(binary.search(1, array), -1)
+      })
+
+      it("should return the correct index of a missing item after the last", function() {
+        assert.equal(binary.search(1000, array), -19)
+      })
+
+      it("should return the correct index of a missing item after the last", function() {
+        assert.equal(binary.search(10, array), -5)
+      })
     })
 
     describe("insert", function() {
-      /* FIXME */
+      it("should correctly insert into an empty array", function() {
+        var a = []
+        binary.insert(50, a)
+        assert.deepEqual(a, [50])
+      })
+
+      it("should correctly insert before the beginning of an array", function() {
+        var a = [50]
+        binary.insert(25, a)
+        assert.deepEqual(a, [25, 50])
+      })
+
+      it("should correctly insert after the end of an array", function() {
+        var a = [25, 50]
+        binary.insert(75, a)
+        assert.deepEqual(a, [25, 50, 75])
+      })
+
+      it("should correctly insert in the middle of an array", function() {
+        var a = [25, 50, 75]
+        binary.insert(62.5, a)
+        assert.deepEqual(a, [25, 50, 62.5, 75])
+      })
+
+      it("should correctly insert a duplicate into the middle of an array", function() {
+        var a = [25, 50, 62.5, 75]
+        binary.insert(50, a)
+        assert.deepEqual(a, [25, 50, 50, 62.5, 75])
+      })
     })
   })
 
