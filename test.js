@@ -99,58 +99,194 @@ describe("sphere-nn", function() {
       it("should construct a KD Tree from the raw data", function() {
         var root = spherekd.build(cities)
 
-        assert.equal(root.axis, 0)
-        assert.closeTo(root.split, 0.1905, 0.0001)
-
-        assert.equal(root.left.axis, 1)
-        assert.closeTo(root.left.split, 0.3774, 0.0001)
-
-        assert.equal(root.left.left.axis, 1)
-        assert.closeTo(root.left.left.split, -0.4287, 0.0001)
-
-        assert.deepEqual(root.left.left.left.object, newYork)
-
-        assert.equal(root.left.left.right.axis, 1)
-        assert.closeTo(root.left.left.right.split, 0.3459, 0.0001)
-
-        assert.deepEqual(root.left.left.right.left.object, miami)
-        assert.deepEqual(root.left.left.right.right.object, hongKong)
-
-        assert.equal(root.left.right.axis, 1)
-        assert.closeTo(root.left.right.split, 0.4871, 0.0001)
-
-        assert.deepEqual(root.left.right.left.object, tokyo)
-
-        assert.equal(root.left.right.right.axis, 1)
-        assert.closeTo(root.left.right.right.split, 0.5748, 0.0001)
-
-        assert.deepEqual(root.left.right.right.left.object, seoul)
-        assert.deepEqual(root.left.right.right.right.object, beijing)
-
-        assert.equal(root.right.axis, 1)
-        assert.closeTo(root.right.split, 0.0309, 0.0001)
-
-        assert.equal(root.right.left.axis, 1)
-        assert.closeTo(root.right.left.split, -0.6373, 0.0001)
-
-        assert.deepEqual(root.right.left.left.object, troy)
-
-        assert.equal(root.right.left.right.axis, 1)
-        assert.closeTo(root.right.left.right.split, -0.0017, 0.0001)
-
-        assert.deepEqual(root.right.left.right.left.object, boston)
-        assert.deepEqual(root.right.left.right.right.object, london)
-
-        assert.equal(root.right.right.axis, 1)
-        assert.closeTo(root.right.right.split, 0.1445, 0.0001)
-
-        assert.deepEqual(root.right.right.left.object, paris)
-
-        assert.equal(root.right.right.right.axis, 2)
-        assert.closeTo(root.right.right.right.split, 0.7443, 0.0001)
-
-        assert.deepEqual(root.right.right.right.left.object, vienna)
-        assert.deepEqual(root.right.right.right.right.object, rome)
+        assert.deepEqual(root, {
+          axis: 0,
+          split: 0.19053158295861533,
+          left: {
+            axis: 1,
+            split: 0.3773989344349447,
+            left: {
+              axis: 2,
+              split: 0.9004099062436204,
+              left: {
+                object: {
+                  name: 'New York',
+                  lat: 40.664,
+                  lon: -73.939
+                },
+                position: [
+                  0.18027811770100247,
+                  -0.6261876186874332,
+                  0.7585439120319568
+                ]
+              },
+              right: {
+                axis: 0,
+                split: 0.07386879316524526,
+                left: {
+                  object: {
+                    name: 'Hong Kong',
+                    lat: 22.278,
+                    lon: 114.159
+                  },
+                  position: [
+                    -0.1551547027349873,
+                    0.3458966504750293,
+                    0.92535535088385
+                  ]
+                },
+                right: {
+                  object: {
+                    name: 'Miami',
+                    lat: 25.788,
+                    lon: -80.224
+                  },
+                  position: [
+                    0.07386879316524526,
+                    -0.42872532247893286,
+                    0.9004099062436204
+                  ]
+                }
+              }
+            },
+            right: {
+              axis: 2,
+              split: 0.7926409303101206,
+              left: {
+                object: {
+                  name: 'Beijing',
+                  lat: 39.914,
+                  lon: 116.392
+                },
+                position: [
+                  -0.2852141628223588,
+                  0.5747616950378845,
+                  0.767008393202264
+                ]
+              },
+              right: {
+                axis: 0,
+                split: -0.36673285061524413,
+                left: {
+                  object: {
+                    name: 'Tokyo',
+                    lat: 35.69,
+                    lon: 139.692
+                  },
+                  position: [
+                    -0.4448876066657038,
+                    0.3773989344349447,
+                    0.8121853616771422
+                  ]
+                },
+                right: {
+                  object: {
+                    name: 'Seoul',
+                    lat: 37.567,
+                    lon: 126.978
+                  },
+                  position: [
+                    -0.36673285061524413,
+                    0.4870599263712049,
+                    0.7926409303101206
+                  ]
+                }
+              }
+            }
+          },
+          right: {
+            axis: 1,
+            split: 0.03089181087201134,
+            left: {
+              axis: 2,
+              split: 0.7345357247383564,
+              left: {
+                object: {
+                  name: 'London',
+                  lat: 51.507,
+                  lon: -0.128
+                },
+                position: [
+                  0.7826822523922511,
+                  -0.0017485318434385033,
+                  0.6224190183683216
+                ]
+              },
+              right: {
+                axis: 0,
+                split: 0.2186433574245326,
+                left: {
+                  object: {
+                    name: 'Troy',
+                    lat: 42.732,
+                    lon: -73.693
+                  },
+                  position: [
+                    0.19053158295861533,
+                    -0.6512718211149489,
+                    0.7345357247383564
+                  ]
+                },
+                right: {
+                  object: {
+                    name: 'Boston',
+                    lat: 42.358,
+                    lon: -71.064
+                  },
+                  position: [
+                    0.2186433574245326,
+                    -0.6372980619186491,
+                    0.738949431645266
+                  ]
+                }
+              }
+            },
+            right: {
+              axis: 2,
+              split: 0.6664283756670815,
+              left: {
+                object: {
+                  name: 'Paris',
+                  lat: 48.857,
+                  lon: 2.351
+                },
+                position: [
+                  0.7524359495443756,
+                  0.03089181087201134,
+                  0.6579406035914653
+                ]
+              },
+              right: {
+                axis: 0,
+                split: 0.7153339349844794,
+                left: {
+                  object: {
+                    name: 'Rome',
+                    lat: 41.9,
+                    lon: 12.5
+                  },
+                  position: [
+                    0.6520022573310842,
+                    0.14454542048145,
+                    0.744311546231154
+                  ]
+                },
+                right: {
+                  object: {
+                    name: 'Vienna',
+                    lat: 48.208,
+                    lon: 16.373
+                  },
+                  position: [
+                    0.7153339349844794,
+                    0.21016798415875806,
+                    0.6664283756670815
+                  ]
+                }
+              }
+            }
+          }
+        })
       })
     })
 
