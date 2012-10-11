@@ -1,6 +1,6 @@
-var assert = require("chai").assert,
-    binary = require("./lib/binary"),
-    lib    = require("./lib")
+var assert   = require("chai").assert,
+    binary   = require("./lib/binary"),
+    spherekd = require("./lib/spherekd")
 
 describe("sphere-nn", function() {
   describe("binary", function() {
@@ -67,7 +67,7 @@ describe("sphere-nn", function() {
     })
   })
 
-  describe("lib", function() {
+  describe("spherekd", function() {
     function City(name, lat, lon) {
       this.name = name
       this.lat  = lat
@@ -93,11 +93,11 @@ describe("sphere-nn", function() {
 
     describe("build", function() {
       it("should return null given an empty array", function() {
-        assert.isNull(lib.build([]))
+        assert.isNull(spherekd.build([]))
       })
 
       it("should construct a KD Tree from the raw data", function() {
-        var root = lib.build(cities)
+        var root = spherekd.build(cities)
 
         assert.equal(root.axis, 0)
         assert.closeTo(root.split, 0.1905, 0.0001)
@@ -155,25 +155,25 @@ describe("sphere-nn", function() {
     })
 
     describe("lookup", function() {
-      var tree = lib.build(cities)
+      var tree = spherekd.build(cities)
 
       it("should return New York, Troy, Boston, and Miami as the four closest cities to Philadelphia", function() {
         assert.deepEqual(
-          lib.lookup(39.95, -75.17, tree, 4),
+          spherekd.lookup(39.95, -75.17, tree, 4),
           [newYork, troy, boston, miami]
         )
       })
 
       it("should return Vienna, Paris, Rome, and London as the four closest cities to Berlin", function() {
         assert.deepEqual(
-          lib.lookup(52.50, 13.40, tree, 4),
+          spherekd.lookup(52.50, 13.40, tree, 4),
           [vienna, paris, rome, london]
         )
       })
 
       it("should return Miami and Hong Kong as the two closest cities to Hawaii", function() {
         assert.deepEqual(
-          lib.lookup(21.31, -157.80, tree, 2),
+          spherekd.lookup(21.31, -157.80, tree, 2),
           [miami, hongKong]
         )
       })

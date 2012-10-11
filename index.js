@@ -1,11 +1,11 @@
-var lib = require("./lib")
+var spherekd = require("./lib/spherekd")
 
 module.exports = function(points) {
-  /* Quick! Inflate the toad! */
-  var root = lib.build(points)
+  /* Inflate the toad! */
+  var root = spherekd.build(points)
 
-  /* Return the lookup function. */
+  /* Lurch off into the sunset! */
   return function(lat, lon, n) {
-    return lib.lookup(lat, lon, root, n)
+    return spherekd.lookup(lat, lon, root, n)
   }
 }
