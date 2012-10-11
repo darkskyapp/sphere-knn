@@ -1,7 +1,8 @@
 /* FIXME: Break out the KD tree stuff into it's own file, and then wrap it with
  * the spherical conversion stuff. */
 
-var rad = Math.PI / 180
+var binary = require("./lib/binary"),
+    rad    = Math.PI / 180
 
 function spherical2cartesian(lat, lon) {
   lat *= rad
@@ -135,9 +136,13 @@ function lookup(lat, lon, node, n) {
     dist = stack.pop()
     node = stack.pop()
 
+    /* If we've already found enough locations, and the furthest one is closer
+     * than this subtree possibly could be, just skip the subtree. */
     if(array.length === n && array[array.length - 1].dist < dist * dist)
       continue
 
+    /* Iterate all the way down the tree, adding nodes that we need to remember
+     * to visit later onto the stack. */
     while(node instanceof Node) {
       if(position[node.axis] < node.split) {
         stack.push(node.right, node.split - position[node.axis])
@@ -150,11 +155,11 @@ function lookup(lat, lon, node, n) {
       }
     }
 
-    /* FIXME: This is like the worst possible way to do this. Binary insertion,
-     * please! */
-    array.push(new Candidate(node, position))
-    array.sort(byDistance)
+    /* Once we've hit a leaf node, insert it into the array of candidates,
+     * making sure to keep the array in sorted order. */
+    binary.insert(new Candidate(node, position), array, byDistance)
 
+    /* If the array's too long, cull it. */
     if(array.length > n)
       array.pop()
   }
@@ -168,5 +173,5 @@ function lookup(lat, lon, node, n) {
   return array
 }
 
-exports.build  = build
-exports.lookup = lookup
+exports.build        = build
+exports.lookup       = lookup

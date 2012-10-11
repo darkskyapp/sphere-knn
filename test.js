@@ -2,6 +2,16 @@ var assert = require("chai").assert,
     lib    = require("./lib")
 
 describe("sphere-nn", function() {
+  describe("binary", function() {
+    describe("search", function() {
+      /* FIXME */
+    })
+
+    describe("insert", function() {
+      /* FIXME */
+    })
+  })
+
   describe("lib", function() {
     function City(name, lat, lon) {
       this.name = name
