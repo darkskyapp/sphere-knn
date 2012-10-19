@@ -2,7 +2,7 @@ var assert   = require("chai").assert,
     binary   = require("./lib/binary"),
     spherekd = require("./lib/spherekd")
 
-describe("sphere-nn", function() {
+describe("sphere-knn", function() {
   describe("binary", function() {
     describe("search", function() {
       var array = [
@@ -101,94 +101,70 @@ describe("sphere-nn", function() {
 
         assert.deepEqual(root, {
           axis: 0,
-          split: 0.19053158295861533,
+          split: 0.20985921950633998,
           left: {
             axis: 1,
-            split: 0.3773989344349447,
+            split: 0.6096887366493714,
             left: {
               axis: 2,
-              split: 0.9004099062436204,
+              split: 0.5253996743519346,
               left: {
-                object: {
-                  name: 'New York',
-                  lat: 40.664,
-                  lon: -73.939
-                },
+                object: miami,
                 position: [
-                  0.18027811770100247,
-                  -0.6261876186874332,
-                  0.7585439120319568
+                  0.1528866465300001,
+                  0.43504252750547817,
+                  -0.8873351523378616
                 ]
               },
               right: {
                 axis: 0,
-                split: 0.07386879316524526,
+                split: -0.37872039680406316,
                 left: {
-                  object: {
-                    name: 'Hong Kong',
-                    lat: 22.278,
-                    lon: 114.159
-                  },
+                  object: tokyo,
                   position: [
-                    -0.1551547027349873,
-                    0.3458966504750293,
-                    0.92535535088385
+                    -0.6193546995975014,
+                    0.5833994671555415,
+                    0.5253996743519346
                   ]
                 },
                 right: {
-                  object: {
-                    name: 'Miami',
-                    lat: 25.788,
-                    lon: -80.224
-                  },
+                  object: hongKong,
                   position: [
-                    0.07386879316524526,
-                    -0.42872532247893286,
-                    0.9004099062436204
+                    -0.37872039680406316,
+                    0.37910087653634733,
+                    0.844306452926866
                   ]
                 }
               }
             },
             right: {
               axis: 2,
-              split: 0.7926409303101206,
+              split: 0.6332143107601375,
               left: {
-                object: {
-                  name: 'Beijing',
-                  lat: 39.914,
-                  lon: 116.392
-                },
+                object: troy,
                 position: [
-                  -0.2852141628223588,
-                  0.5747616950378845,
-                  0.767008393202264
+                  0.20624585628442826,
+                  0.6785700178191618,
+                  -0.7049860833253415
                 ]
               },
               right: {
                 axis: 0,
-                split: -0.36673285061524413,
+                split: -0.3409429851536599,
                 left: {
-                  object: {
-                    name: 'Tokyo',
-                    lat: 35.69,
-                    lon: 139.692
-                  },
+                  object: seoul,
                   position: [
-                    -0.4448876066657038,
-                    0.3773989344349447,
-                    0.8121853616771422
+                    -0.4767801181377611,
+                    0.6096887366493714,
+                    0.6332143107601375
                   ]
                 },
                 right: {
-                  object: {
-                    name: 'Seoul',
-                    lat: 37.567,
-                    lon: 126.978
-                  },
+                  object: beijing,
                   position: [
-                    -0.36673285061524413,
-                    0.4870599263712049,
-                    0.7926409303101206
+                    -0.3409429851536599,
+                    0.6416370662276932,
+                    0.6870660493120221
                   ]
                 }
               }
@@ -196,91 +172,67 @@ describe("sphere-nn", function() {
           },
           right: {
             axis: 1,
-            split: 0.03089181087201134,
+            split: 0.745569057905259,
             left: {
               axis: 2,
-              split: 0.7345357247383564,
+              split: -0.6989587067659011,
               left: {
-                object: {
-                  name: 'London',
-                  lat: 51.507,
-                  lon: -0.128
-                },
+                object: newYork,
                 position: [
-                  0.7826822523922511,
-                  -0.0017485318434385033,
-                  0.6224190183683216
+                  0.20985921950633998,
+                  0.6516219252904669,
+                  -0.7289361936884015
                 ]
               },
               right: {
                 axis: 0,
-                split: 0.2186433574245326,
+                split: 0.7266683906387393,
                 left: {
-                  object: {
-                    name: 'Troy',
-                    lat: 42.732,
-                    lon: -73.693
-                  },
+                  object: boston,
                   position: [
-                    0.19053158295861533,
-                    -0.6512718211149489,
-                    0.7345357247383564
+                    0.23979780809048454,
+                    0.6737608904285988,
+                    -0.6989587067659011
                   ]
                 },
                 right: {
-                  object: {
-                    name: 'Boston',
-                    lat: 42.358,
-                    lon: -71.064
-                  },
+                  object: rome,
                   position: [
-                    0.2186433574245326,
-                    -0.6372980619186491,
-                    0.738949431645266
+                    0.7266683906387393,
+                    0.6678325554710466,
+                    0.1610985037159434
                   ]
                 }
               }
             },
             right: {
               axis: 2,
-              split: 0.6664283756670815,
+              split: 0.026989498186927637,
               left: {
-                object: {
-                  name: 'Paris',
-                  lat: 48.857,
-                  lon: 2.351
-                },
+                object: london,
                 position: [
-                  0.7524359495443756,
-                  0.03089181087201134,
-                  0.6579406035914653
+                  0.6224174651684267,
+                  0.782684205521879,
+                  -0.001390496276659977
                 ]
               },
               right: {
                 axis: 0,
-                split: 0.7153339349844794,
+                split: 0.6573868000210528,
                 left: {
-                  object: {
-                    name: 'Rome',
-                    lat: 41.9,
-                    lon: 12.5
-                  },
+                  object: vienna,
                   position: [
-                    0.6520022573310842,
-                    0.14454542048145,
-                    0.744311546231154
+                    0.6394026512991717,
+                    0.745569057905259,
+                    0.18785906793619112
                   ]
                 },
                 right: {
-                  object: {
-                    name: 'Vienna',
-                    lat: 48.208,
-                    lon: 16.373
-                  },
+                  object: paris,
                   position: [
-                    0.7153339349844794,
-                    0.21016798415875806,
-                    0.6664283756670815
+                    0.6573868000210528,
+                    0.7530698255445496,
+                    0.026989498186927637
                   ]
                 }
               }
@@ -300,17 +252,17 @@ describe("sphere-nn", function() {
         )
       })
 
-      it("should return Vienna, Paris, Rome, and London as the four closest cities to Berlin", function() {
+      it("should return Vienna, Paris, London, and Rome as the four closest cities to Berlin", function() {
         assert.deepEqual(
           spherekd.lookup(52.50, 13.40, tree, 4),
-          [vienna, paris, rome, london]
+          [vienna, paris, london, rome]
         )
       })
 
-      it("should return Miami and Hong Kong as the two closest cities to Hawaii", function() {
+      it("should return Tokyo and Seoul as the two closest cities to Hawaii", function() {
         assert.deepEqual(
           spherekd.lookup(21.31, -157.80, tree, 2),
-          [miami, hongKong]
+          [tokyo, seoul]
         )
       })
     })
