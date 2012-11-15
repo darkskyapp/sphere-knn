@@ -5,7 +5,7 @@ module.exports = function(points) {
   var root = spherekd.build(points)
 
   /* Lurch off into the sunset! */
-  return function(lat, lon, n) {
-    return spherekd.lookup(lat, lon, root, n)
+  return function(lat, lon, n, max) {
+    return spherekd.lookup(lat, lon, root, n, max)
   }
 }

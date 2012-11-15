@@ -265,6 +265,13 @@ describe("sphere-knn", function() {
           [tokyo, seoul]
         )
       })
+
+      it("should return Troy, Boston, and New York as the only cities within 200km of Hartford", function() {
+        assert.deepEqual(
+          spherekd.lookup(41.76, -72.67, tree, 20, 200000),
+          [troy, boston, newYork]
+        )
+      })
     })
   })
 })
