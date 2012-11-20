@@ -1,18 +1,18 @@
 {
   "name": "sphere-knn",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "search for k nearest neighbors on a sphere",
   "keywords": [
     "kd-tree",
     "nearest neighbor"
   ],
   "author": {
-    "name": "J.T.L.",
-    "email": "ironwallaby@gmail.com"
+    "name": "The Dark Sky Company",
+    "email": "devsupport@darkskyapp.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ironwallaby/sphere-knn.git"
+    "url": "git://github.com/darkskyapp/sphere-knn.git"
   },
   "main": "./index",
   "dependencies" : {
