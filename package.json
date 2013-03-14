@@ -1,6 +1,6 @@
 {
   "name": "sphere-knn",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "search for k nearest neighbors on a sphere",
   "keywords": [
     "kd-tree",
