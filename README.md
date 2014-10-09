@@ -43,3 +43,11 @@ you want to find, say, any points within 200 kilometers of a given point.
 backing earth model is a sphere, all distances given to this function are
 approximate. If it matters that much to you, add a few meters of padding and
 check the results with some very accurate (and complex) distance function.)
+
+License
+-------
+
+To the extend possible by law, The Dark Sky Company, LLC has [waived all
+copyright and related or neighboring rights][cc0] to this library.
+
+[cc0]: http://creativecommons.org/publicdomain/zero/1.0/
