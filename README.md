@@ -26,7 +26,8 @@ To use:
         lookup    = sphereKnn([
           /* This array needs to be full of objects that have latitudes and
            * longitudes. Accepted property names are "lat", "latitude", "lon",
-           * "lng", "long", "longitude". */
+           * "lng", "long", "longitude".
+           * or arrays like [lat,lng] */
           {lat: ..., lon: ...},
           ...
         ])
