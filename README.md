@@ -28,6 +28,10 @@ To use:
            * longitudes. Accepted property names are "lat", "latitude", "lon",
            * "lng", "long", "longitude". */
           {lat: ..., lon: ...},
+
+          /* You can also use an array. */
+          [my_lat, my_lon],
+
           ...
         ])
 

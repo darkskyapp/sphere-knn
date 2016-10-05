@@ -69,9 +69,9 @@ describe("sphere-knn", function() {
 
   describe("spherekd", function() {
     function City(name, lat, lon) {
-      this.name = name
-      this.lat  = lat
-      this.lon  = lon
+      this.name = name;
+      this.lat  = lat;
+      this.lon  = lon;
     }
 
     var boston   = new City("Boston",    42.358, -71.064),
@@ -89,7 +89,7 @@ describe("sphere-knn", function() {
         cities = [
           boston, troy, newYork, miami, london, paris, vienna, rome, beijing,
           hongKong, seoul, tokyo
-        ]
+        ];
 
     describe("build", function() {
       it("should return null given an empty array", function() {
@@ -122,7 +122,7 @@ describe("sphere-knn", function() {
                 left: {
                   object: tokyo,
                   position: [
-                    -0.6193546995975014,
+                    -0.6193546995975016,
                     0.5833994671555415,
                     0.5253996743519346
                   ]
