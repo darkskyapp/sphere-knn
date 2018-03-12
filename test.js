@@ -240,6 +240,22 @@ describe("sphere-knn", function() {
           }
         })
       })
+
+      it("should allow building from geojson features", function() {
+        var features = cities.map(function(c) {
+          return {
+            'type': 'Feature',
+            'properties': {'name': c.name},
+            'geometry': {'type': 'Point', 'coordinates': [c.lon, c.lat]},
+          }
+        });
+
+        var tree = spherekd.build(features)
+        assert.deepEqual(
+          spherekd.lookup(39.95, -75.17, tree, 4).map(function(c) { return c.properties.name }),
+          ['New York', 'Troy', 'Boston', 'Miami']
+        )
+      })
     })
 
     describe("lookup", function() {
