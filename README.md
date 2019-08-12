@@ -22,20 +22,22 @@ To install:
 
 To use:
 
-    var sphereKnn = require("sphere-knn"),
-        lookup    = sphereKnn([
-          /* This array needs to be full of objects that have latitudes and
-           * longitudes. Accepted property names are "lat", "latitude", "lon",
-           * "lng", "long", "longitude". */
-          {lat: ..., lon: ...},
+```javascript
+var sphereKnn = require("sphere-knn"),
+    lookup    = sphereKnn([
+      /* This array needs to be full of objects that have latitudes and
+       * longitudes. Accepted property names are "lat", "latitude", "lon",
+       * "lng", "long", "longitude". */
+      {lat: ..., lon: ...},
 
-          /* You can also use an array. */
-          [my_lat, my_lon],
+      /* You can also use an array. */
+      [my_lat, my_lon],
 
-          ...
-        ])
+      ...
+    ])
 
-    var points = lookup(someLatitude, someLongitude, maxResults, maxDistance)
+var points = lookup(someLatitude, someLongitude, maxResults, maxDistance)
+```
 
 The `points` array consists of objects that were in the array passed to
 `sphereKnn()`, ordered from nearest to furthest. The `maxResults` value is the
