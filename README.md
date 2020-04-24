@@ -1,6 +1,8 @@
 sphere-knn
 ==========
 
+**THIS LIBRARY IS NO LONGER MAINTAINED. PLEASE FORK IF YOU NEED TO USE IT.**
+
 `sphere-knn` is a Node.JS module that provides fast nearest-neighbor lookups on
 a sphere. This is useful if, for example, you have a database of geographic
 points (latitude, longitude) and want to swiftly look up which of those points
